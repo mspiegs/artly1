@@ -1,0 +1,31 @@
+<h1>Listing art_pieces</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Delivery date</th>
+    <th>Date</th>
+    <th>Number of pieces</th>
+    <th>Removal date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @art_pieces.each do |art_piece| %>
+  <tr>
+    <td><%= art_piece.name %></td>
+    <td><%= art_piece.delivery_date %></td>
+    <td><%= art_piece.date %></td>
+    <td><%= art_piece.number_of_pieces %></td>
+    <td><%= art_piece.removal_date %></td>
+    <td><%= link_to 'Show', art_piece %></td>
+    <td><%= link_to 'Edit', edit_art_piece_path(art_piece) %></td>
+    <td><%= link_to 'Destroy', art_piece, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= button_to 'New Art piece', new_art_piece_path, :method => "get", class: "btn btn-primary btn-mini" %>

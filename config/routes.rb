@@ -1,4 +1,7 @@
 Artly::Application.routes.draw do
+  resources :art_pieces
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
