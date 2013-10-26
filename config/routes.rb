@@ -1,4 +1,7 @@
 Artly::Application.routes.draw do
+  resources :locations
+
+
   resources :art_pieces
 
 
