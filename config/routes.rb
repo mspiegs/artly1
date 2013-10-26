@@ -2,10 +2,14 @@ Artly::Application.routes.draw do
   resources :art_types
 
 
-  resources :locations
+  resources :locations do
+    resources :productions
+  end
 
 
-  resources :art_pieces 
+  resources :art_pieces do
+    resources :productions
+  end
 
 
   # The priority is based upon order of creation:

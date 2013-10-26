@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  location_id: 1
+  art_piece_id: 1
+  number: 1
+  number_of_editions: 1
+  name: MyString
+
+two:
+  location_id: 1
+  art_piece_id: 1
+  number: 1
+  number_of_editions: 1
+  name: MyString

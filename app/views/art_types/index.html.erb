@@ -1,23 +1,22 @@
-<h1>Listing art_types</h1>
+<h1>Types of Art</h1>
 
-<table>
+<table class="table table-hover table-responsive">
   <tr>
-    <th>Type of art</th>
     <th></th>
     <th></th>
     <th></th>
+
   </tr>
 
 <% @art_types.each do |art_type| %>
   <tr>
-    <td><%= art_type.type_of_art %></td>
-    <td><%= link_to 'Show', art_type %></td>
-    <td><%= link_to 'Edit', edit_art_type_path(art_type) %></td>
-    <td><%= link_to 'Destroy', art_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= best_in_place art_type, :type_of_art %></td>
+    <td style="width: 45px;"><%= button_to 'Edit', edit_art_type_path(art_type), :method => "get", class: "btn btn-warning btn-mini" %></td>
+    <td style="width: 45px;"><%= button_to 'Destroy', art_type, :method => "get", method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Art type', new_art_type_path %>
+<%= button_to 'New Art Type', new_art_type_path, :method => "get", class: "btn btn-success" %></td> 

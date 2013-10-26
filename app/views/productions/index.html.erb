@@ -1,0 +1,11 @@
+<h1><%= @piece.name %> Productions</h1>
+
+<table>
+	<% @productions.each do |production| %>
+		<tr>
+			<td><%= production.number %></td>
+			<td></td>
+			<td><%= production.location.name %></td>
+		</tr>
+	<% end %>
+</table>

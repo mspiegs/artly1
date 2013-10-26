@@ -3,4 +3,6 @@ class ArtPiece < ActiveRecord::Base
   attr_accessible :art_type_id
   belongs_to :location
   belongs_to :art_type
+
+  has_many :productions
 end

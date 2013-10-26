@@ -1,0 +1,36 @@
+<%= form_for [@art_piece, @production] do |f| %>
+  <% if @production.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@production.errors.count, "error") %> prohibited this production from being saved:</h2>
+
+      <ul>
+      <% @production.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+
+    <%= f.label :number %><span style="font-size: 10px; font-color: #ff0000;">    Last number was <%= @production_number - 1 %></span><br />
+    <% if @art_piece.productions != nil %>
+      <%= f.text_field :number, :value => @production_number %>
+    <% elsif @art_piece.production.number > 0 %>
+      <% f.text_field :nmuber, :value => @art_piece.production.number %>
+    <% else %>
+      <%= f.text_field :number %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location %><br />
+    <%= f.collection_select :location_id, Location.all, :id, :name, :promt => "Select a location" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
