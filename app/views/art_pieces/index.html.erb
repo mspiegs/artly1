@@ -21,7 +21,7 @@
     <td><%= best_in_place t, :type_of_art %></td>
     <td><%= art_piece.date.strftime("%m-%d-%y")%></td>
     <td style="text-align: center;"><%= art_piece.number_of_pieces %></td>
-    <td style="text-align: center;"></td>
+    <td style="text-align: center;"><%= link_to art_piece.productions.count, art_piece_productions_path(art_piece) %></td>
     <td style="padding: 8px 0px;"><%= button_to 'View', art_piece, :method => "get", class: "btn btn-primary btn-mini" %></td>
     <td style="padding: 8px 0px;"><%= button_to 'Edit', edit_art_piece_path(art_piece), :method => "get", class: "btn btn-warning btn-mini" %></td>
     <td style="padding: 8px 0px;"><%= button_to 'Delete', art_piece, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %></td>
