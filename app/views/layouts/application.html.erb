@@ -14,7 +14,11 @@
 		</div>
 	</nav>
 	<div class="container">
-	
+		<ul class="nav nav-tabs">
+			<li class="<%= 'active' if current_page?(art_pieces_path) %>"><%= link_to "Art Pieces", art_pieces_path %></li>
+			<li class="<%= 'active' if current_page?(locations_path)%>"><%= link_to "Locations", locations_path %></li>
+			<li class="<%= 'active' if current_page?(art_types_path)%>"><%= link_to "Art Types", art_types_path %></li> 
+		</ul>
 
 
 		<%= yield %>

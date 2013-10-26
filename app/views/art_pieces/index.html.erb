@@ -1,31 +1,38 @@
-<h1>Listing art_pieces</h1>
+<h1>My Art</h1>
 
-<table>
+<table class="table table-hover table-responsive">
+<tbody>
   <tr>
-    <th>Name</th>
-    <th>Delivery date</th>
-    <th>Date</th>
-    <th>Number of pieces</th>
-    <th>Removal date</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th style="width: 383px;">Name</th>
+    <th style="width: 222px;">Type</th>
+    <th style="width: 55px;">Date</th>
+    <th style="width: 64px; text-align: center;"># pieces</th>
+    <th style="width: 30px;"># productions</th>
+    <th style="width: 20px; padding-right: 2px;"></th>
+    <th style="width: 25px;"></th>
+    <th style="width: 25px;"></th>
   </tr>
 
 <% @art_pieces.each do |art_piece| %>
-  <tr>
-    <td><%= art_piece.name %></td>
-    <td><%= art_piece.delivery_date %></td>
-    <td><%= art_piece.date %></td>
-    <td><%= art_piece.number_of_pieces %></td>
-    <td><%= art_piece.removal_date %></td>
-    <td><%= link_to 'Show', art_piece %></td>
-    <td><%= link_to 'Edit', edit_art_piece_path(art_piece) %></td>
-    <td><%= link_to 'Destroy', art_piece, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <tr style="height: 41px;">
+    <td><%= best_in_place art_piece, :name, :inner_class => "input-small" %></td>
+    <% a = art_piece.art_type_id %>
+    <% t = ArtType.find(a) %>
+    <td><%= best_in_place t, :type_of_art %></td>
+    <td><%= art_piece.date.strftime("%m-%d-%y")%></td>
+    <td style="text-align: center;"><%= art_piece.number_of_pieces %></td>
+    <td style="text-align: center;"></td>
+    <td style="padding: 8px 0px;"><%= button_to 'View', art_piece, :method => "get", class: "btn btn-primary btn-mini" %></td>
+    <td style="padding: 8px 0px;"><%= button_to 'Edit', edit_art_piece_path(art_piece), :method => "get", class: "btn btn-warning btn-mini" %></td>
+    <td style="padding: 8px 0px;"><%= button_to 'Delete', art_piece, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
-
-<%= button_to 'New Art piece', new_art_piece_path, :method => "get", class: "btn btn-primary btn-mini" %>
+<table>
+    <tr>
+        <td><%= button_to 'New Piece', new_art_piece_path, :method => "get", class: "btn btn-success" %></td> 
+    <tr/>
+</table>

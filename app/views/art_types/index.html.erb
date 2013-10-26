@@ -1,0 +1,23 @@
+<h1>Listing art_types</h1>
+
+<table>
+  <tr>
+    <th>Type of art</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @art_types.each do |art_type| %>
+  <tr>
+    <td><%= art_type.type_of_art %></td>
+    <td><%= link_to 'Show', art_type %></td>
+    <td><%= link_to 'Edit', edit_art_type_path(art_type) %></td>
+    <td><%= link_to 'Destroy', art_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Art type', new_art_type_path %>

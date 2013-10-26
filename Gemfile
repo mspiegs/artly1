@@ -28,7 +28,7 @@ group :assets do
   gem 'less-rails'
 end
 
-
+gem 'best_in_place'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

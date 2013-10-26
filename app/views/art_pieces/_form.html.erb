@@ -11,23 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :delivery_date %><br />
-    <%= f.date_select :delivery_date %>
+  <div class="form-group">
+    <%= f.label :art_type %><br />
+    <%= f.collection_select :art_type_id, ArtType.all, :id, :type_of_art, :prompt => "Select an Art Type" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :number_of_pieces %><br />
-    <%= f.number_field :number_of_pieces %>
+    <%= f.text_field :number_of_pieces %>
   </div>
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :location %><br />
+    <%= f.collection_select :location_id, Location.all, :id, :name, :promt => "Select a location" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :delivery_date %><br />
+    <%= f.date_select :delivery_date %>
+  </div>
+  <div class="form-group">
     <%= f.label :removal_date %><br />
     <%= f.date_select :removal_date %>
   </div>
