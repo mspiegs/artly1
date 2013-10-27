@@ -14,5 +14,13 @@
 //= require jquery_ujs
 //= require jquery.purr
 //= require best_in_place
+//= require art_pieces.js
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+	$(".editions").hide();
+	$(".prodslide").click(function() {
+		$(this).parents("tr").next().slideToggle();
+	});
+});
