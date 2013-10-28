@@ -13,25 +13,30 @@
 </br>
 </br>
 <table class="table table-hover ">
-  <tr style="background:-o-linear-gradient(bottom, #FAFAFA 5%, #afafaf 100%); background:-webkit-gradient( linear, left top, left bottom, color-stop(0, #FAFAFA), color-stop(1, #C2C2C2)); background:-moz-linear-gradient( center top, #d8d8d8 5%, #afafaf 100% ); background: -o-linear-gradient(top,#d8d8d8,afafaf);">
-    <th>Productions for <%= @art_piece.name %></th>
-    <th>Location of Production</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @art_piece.productions.each do |production| %>
-  <tr>
-    <td style="width: 300px; "><%= production.number %></td>
-    <td><%= production.location.name %></td>
-    <td><%= production.name %></td>
-    <td><%= button_to "Edit", edit_art_piece_production_path(@art_piece, production), :method => "get", class: "btn btn-warning btn-mini" %></td>
-    <td><%= button_to "Add Edition", new_art_piece_production_edition_path(@art_piece, production), :method => "get", class: "btn btn-primary btn-mini" %></td>
-    <td class="prodslide"><%= link_to "Show Editions", "#" %></td>
-  </tr>
-  <tr class="editions">
-    <td>Testing</td>
-  </tr>
+  <tbody>
+    <tr style="background:-o-linear-gradient(bottom, #FAFAFA 5%, #afafaf 100%); background:-webkit-gradient( linear, left top, left bottom, color-stop(0, #FAFAFA), color-stop(1, #C2C2C2)); background:-moz-linear-gradient( center top, #d8d8d8 5%, #afafaf 100% ); background: -o-linear-gradient(top,#d8d8d8,afafaf);">
+      <th>Productions for <%= @art_piece.name %></th>
+      <th>Location of Production</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% @art_piece.productions.each do |production| %>
+    <tr>
+      <td style="width: 300px; "><%= production.number %></td>
+      <td><%= production.location.name %></td>
+      <td><%= production.name %></td>
+      <td><%= button_to "Edit", edit_art_piece_production_path(@art_piece, production), :method => "get", class: "btn btn-warning btn-mini" %></td>
+      <td><%= button_to "Add Edition", new_art_piece_production_edition_path(@art_piece, production), :method => "get", class: "btn btn-primary btn-mini" %></td>
+      <td class="prodslide"><%= link_to "Show Editions", "#" %></td>
+    </tr>
+  </tbody>
+  <tbody class="editions">
+    <% production.editions.each do |edition| %>
+      <tr><td><%= edition.number %></td><td><%= edition.name %></td><td><%= edition.purchaser %></td><td><%= button_to "Edit Edition", edit_art_piece_production_edition_path(@art_piece, production, edition), :method => "get", class: "btn btn-warning btn-mini" %></td></tr>
+    <% end %>
+  </tbody>
+  
 
 <% end %>
 </table>

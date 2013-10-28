@@ -21,6 +21,6 @@
 $(document).ready(function(){
 	$(".editions").hide();
 	$(".prodslide").click(function() {
-		$(this).parents("tr").next().slideToggle();
+		$(this).parents("tbody").next("tbody").slideToggle();
 	});
 });
