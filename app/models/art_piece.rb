@@ -5,4 +5,5 @@ class ArtPiece < ActiveRecord::Base
   belongs_to :art_type
 
   has_many :productions
+  has_many :editions
 end

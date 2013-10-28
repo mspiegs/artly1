@@ -3,4 +3,5 @@ class Production < ActiveRecord::Base
 
   belongs_to :art_piece
   belongs_to :location
+  has_many :editions
 end

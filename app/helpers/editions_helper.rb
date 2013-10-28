@@ -1,5 +1,4 @@
-module ProductionsHelper
-	
+module EditionsHelper
 	def art_piece_user
 		@art_piece = ArtPiece.find(params[:art_piece_id])
 	end
@@ -12,5 +11,9 @@ module ProductionsHelper
 			@production = @art_piece.productions.maximum("number")
 			@production_number = @production + 1
 		end
+	end
+
+	def production_info
+		@production = Production.find(params[:production_id])
 	end
 end
