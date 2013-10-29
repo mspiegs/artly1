@@ -28,12 +28,18 @@
       <td><%= production.name %></td>
       <td><%= button_to "Edit", edit_art_piece_production_path(@art_piece, production), :method => "get", class: "btn btn-warning btn-mini" %></td>
       <td><%= button_to "Add Edition", new_art_piece_production_edition_path(@art_piece, production), :method => "get", class: "btn btn-primary btn-mini" %></td>
-      <td class="prodslide"><%= link_to "Show Editions", "#" %></td>
+      <td class="prodslide"><a href="#" id="plus">Show Editions</a></td>
     </tr>
   </tbody>
   <tbody class="editions">
     <% production.editions.each do |edition| %>
-      <tr><td><%= edition.number %></td><td><%= edition.name %></td><td><%= edition.purchaser %></td><td><%= button_to "Edit Edition", edit_art_piece_production_edition_path(@art_piece, production, edition), :method => "get", class: "btn btn-warning btn-mini" %></td></tr>
+      <tr>
+        <td><%= edition.number %></td>
+        <td><%= edition.name %></td>
+        <td><%= edition.purchaser %></td>
+        <td><%= button_to "Edit Edition", edit_art_piece_production_edition_path(@art_piece, production, edition), :method => "get", class: "btn btn-warning btn-mini" %></td>
+        <td><%= button_to "Delete", art_piece_production_edition_path(@art_piece, production, edition), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %></td>
+      </tr>
     <% end %>
   </tbody>
   

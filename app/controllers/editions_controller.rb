@@ -19,7 +19,6 @@ class EditionsController < ApplicationController
 	end
 
 	def update
-		edit
 		@art_piece = ArtPiece.find(params[:art_piece_id])
 		@production = Production.find(params[:production_id])
 		@edition = Edition.find(params[:id])
@@ -62,4 +61,16 @@ class EditionsController < ApplicationController
 	      end
 	    end
 	end
+
+	def destroy
+		@art_piece = ArtPiece.find(params[:art_piece_id])
+		@production = Production.find(params[:production_id])
+		@edition = Edition.find(params[:id])
+		@edition.destroy
+
+	  respond_to do |format|
+    	format.html { redirect_to art_piece_path(@art_piece) }
+    	format.json { head :no_content }
+  	end
+  end
 end

@@ -21,6 +21,39 @@
 $(document).ready(function(){
 	$(".editions").hide();
 	$(".prodslide").click(function() {
-		$(this).parents("tbody").next("tbody").slideToggle();
+
+
+		var editionsection = $(this).parents("tbody").next("tbody")
+		$(editionsection).slideToggle(0, function(){
+			console.log($(editionsection).is(":visible"));
+			console.log(editionsection);
+			if($(editionsection).is(":visible")){
+	        	$(editionsection).closest("tbody").prev().find("td.prodslide").find("a#plus").text("Hide Editions");
+	        	console.log((editionsection).closest("tbody").prev().find("td.prodslide").find("a#plus"));
+	        }
+	        else {
+	            $(editionsection).closest("tbody").prevAll().find("td.prodslide").find("a#plus").text("Show Editions");  
+	        } 
+		});
+		
 	});
 });
+   
+
+//    $(".editions").hide();
+//    // $(".prodslide").show();
+
+//    $(".prodslide").click(function(){
+//        $(this).parents("tbody").next("tbody").slideDown(
+//          function(){
+//            $("#plus").text("-")
+//          }
+//        );
+//    },function(){
+//        $(this).parents("tbody").next("tbody").slideUp(
+//        function(){
+//            $("#plus").text("+")
+//        }
+//        );
+//    });
+// });
