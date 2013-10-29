@@ -25,11 +25,8 @@ $(document).ready(function(){
 
 		var editionsection = $(this).parents("tbody").next("tbody")
 		$(editionsection).slideToggle(0, function(){
-			console.log($(editionsection).is(":visible"));
-			console.log(editionsection);
 			if($(editionsection).is(":visible")){
 	        	$(editionsection).closest("tbody").prev().find("td.prodslide").find("a#plus").text("Hide Editions");
-	        	console.log((editionsection).closest("tbody").prev().find("td.prodslide").find("a#plus"));
 	        }
 	        else {
 	            $(editionsection).closest("tbody").prevAll().find("td.prodslide").find("a#plus").text("Show Editions");  

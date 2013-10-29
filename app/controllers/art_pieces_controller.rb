@@ -1,6 +1,5 @@
 class ArtPiecesController < ApplicationController
-  # GET /art_pieces
-  # GET /art_pieces.json
+  include ApplicationHelper
   def index
     @art_pieces = ArtPiece.all
 
